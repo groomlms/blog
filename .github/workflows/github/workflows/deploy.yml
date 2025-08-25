@@ -1,0 +1,44 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup Ruby (Jekyll runs on Ruby)
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1' # GitHub Pages uses Ruby 3.1
+
+      # Install Jekyll and dependencies
+      - run: |
+          gem install bundler jekyll
+          bundle install || true
+
+      # Build the site
+      - run: jekyll build -d ./_site
+
+      # Upload the site as artifact for Pages
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
