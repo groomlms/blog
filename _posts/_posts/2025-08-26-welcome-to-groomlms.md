@@ -34,4 +34,5 @@ Stay tuned this week for:
 ---
 
 <img width="952" height="446" alt="image" src="https://github.com/user-attachments/assets/0e5ac156-3133-46ac-b473-0e76de36600f" />
+
 *Alt text: GroomLMS dashboard showing course progress*
