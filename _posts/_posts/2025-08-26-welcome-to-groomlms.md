@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Welcome to GroomLMS — Transforming Corporate Learning"
+title: "Welcome to GroomLMS — 
+Transforming Corporate Learning"
 date: 2025-08-26 10:00:00 +05:30
 categories: [announcement]
 tags: [GroomLMS, LMS, corporate-training]
